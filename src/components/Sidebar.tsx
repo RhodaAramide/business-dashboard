@@ -1,9 +1,20 @@
+
+
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Menu } from "lucide-react";
+// import { useRouter } from "next/router";
+import toast from "react-hot-toast";
 
 export const Sidebar = () => {
     const [open, setOpen] = useState(false);
+    // const router = useRouter();
+
+    const handleLogout = () => {
+        // Perform any logout logic here (e.g., clearing tokens, session, etc.)
+        toast.success("Logged out successfully");
+        // router.push("/login"); // Redirect to the login page
+    };
 
     return (
         <>
@@ -18,11 +29,11 @@ export const Sidebar = () => {
 
             {/* Sidebar */}
             <motion.aside
-                 className="w-64 h-full bg-white shadow-md flex flex-none flex-col z-50"
-                 initial={{ x: -250 }}
-                 animate={{ x: 0 }}
-                 exit={{ x: -250 }}
-                 transition={{ type: "spring", stiffness: 200 }}
+                className="w-64 h-full bg-white shadow-md flex flex-none flex-col z-50"
+                initial={{ x: -250 }}
+                animate={{ x: 0 }}
+                exit={{ x: -250 }}
+                transition={{ type: "spring", stiffness: 200 }}
             >
                 <button
                     onClick={() => setOpen(false)}
@@ -90,13 +101,13 @@ export const Sidebar = () => {
                             <p>Firstname Lastname</p>
                         </div>
                     </div>
-                    <a
-                        href="#"
+                    <button
+                        onClick={handleLogout}
                         className="flex items-center p-4 gap-2 w-full h-14 rounded-lg text-[#525252] font-normal text-sm"
                     >
                         <div className="w-6 h-6 border-2 border-[#525252]"></div>
                         Log Out
-                    </a>
+                    </button>
                 </div>
             </motion.aside>
         </>

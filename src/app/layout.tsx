@@ -1,6 +1,7 @@
 
 import "./globals.css";
 import { ReactNode } from "react";
+import { ToastProvider } from "./providers/ToastProvider";
 
 export const metadata = {
   title: "Business Dashboard",
@@ -10,7 +11,11 @@ export const metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      
+      <body>
+      <ToastProvider />
+        {children}
+      </body>
     </html>
   );
 }

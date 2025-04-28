@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 const LoginPage = () => {
     const router = useRouter();
@@ -10,6 +11,7 @@ const LoginPage = () => {
     function handleLogin() {
         if (email) {
             localStorage.setItem("user", email);
+            toast.success("Logged in successfully!")
             router.push("/dashboard");
         }
     }

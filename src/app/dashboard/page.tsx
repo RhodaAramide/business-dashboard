@@ -1,0 +1,42 @@
+"use client";
+
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { Sidebar } from "@/components/Sidebar";
+import { HeaderBanner } from "@/components/HeaderBanner";
+import { OverviewSection } from "@/components/OverviewSection";
+import { CompanyGrowthChart } from "@/components/CompanyGrowthChart";
+import { ShipmentList } from "@/components/ShipmentList";
+import { motion } from "framer-motion";
+import { Topbar } from "@/components/Topbar";
+
+export default function DashboardPage() {
+  const router = useRouter();
+
+  useEffect(() => {
+    const user = localStorage.getItem("user");
+    if (!user) {
+      router.push("/login");
+    }
+  }, [router]);
+
+  return (
+    <div className="flex min-h-screen">
+      <Sidebar />
+      <motion.main
+        className="flex-1  bg-gray-50 overflow-auto"
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        <Topbar />
+        <div className="flex flex-col p-6 ">
+          <HeaderBanner />
+          <OverviewSection />
+          <CompanyGrowthChart />
+          <ShipmentList />
+        </div>
+      </motion.main>
+    </div>
+  );
+}

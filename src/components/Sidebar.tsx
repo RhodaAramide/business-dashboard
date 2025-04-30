@@ -31,7 +31,7 @@ export const Sidebar = () => {
     const handleLogout = () => {        
         toast.success("Logged out successfully");
         document.cookie =
-      'dashboard-auth=; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+      'dashboard-auth=; path=/;';
         redirect("/login");
     };
 

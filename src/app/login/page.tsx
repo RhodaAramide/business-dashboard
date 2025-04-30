@@ -14,7 +14,7 @@ export default function LoginPage() {
 
     // Simulate login
     if (email && password) {
-      document.cookie = `dashboard-auth=1; path=/dashboard;`;
+      document.cookie = `dashboard-auth=1; path=/;`;
       toast.success("Logged in successfully");
       router.push("/dashboard");
       redirect("/dashboard");

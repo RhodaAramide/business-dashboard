@@ -1,7 +1,7 @@
 "use client";
 
-// import { useEffect } from "react";
-// import { useRouter } from "next/navigation";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 import { Sidebar } from "@/components/Sidebar";
 import { HeaderBanner } from "@/components/HeaderBanner";
 import { OverviewSection } from "@/components/OverviewSection";
@@ -11,14 +11,14 @@ import { motion } from "framer-motion";
 import { Topbar } from "@/components/Topbar";
 
 export default function DashboardPage() {
-  // const router = useRouter();
+  const router = useRouter();
 
-  // useEffect(() => {
-  //   const user = localStorage.getItem("user");
-  //   if (!user) {
-  //     router.push("/login");
-  //   }
-  // }, [router]);
+  useEffect(() => {
+    const user = localStorage.getItem("user");
+    if (!user) {
+      router.push("/login");
+    }
+  }, [router]);
 
   return (
     <div className="flex min-h-screen w-screen bg-neutral-50 font-sans overflow-scroll">

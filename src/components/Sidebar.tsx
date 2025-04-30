@@ -86,8 +86,7 @@ export const Sidebar = () => {
                 {/* Profile Section */}
                 <div className="flex flex-col items-start p-0 gap-2 w-[180px] mb-8 mx-auto">
                     <div className="flex items-center p-4 gap-2 w-full h-20 rounded-lg">
-                        <Image src="/images/Ellipse.png" alt="Profile"
-                        className="size-12"/>
+                        <Image src="/images/Ellipse.png" alt="Profile" width={48}   height={48} />
                         <div className="text-[#525252] text-sm">
                             <p>Firstname Lastname</p>
                         </div>

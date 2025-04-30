@@ -28,9 +28,9 @@ export const Sidebar = () => {
         }
     }, []);
 
-    const handleLogout = () => {        
+    const handleLogout = () => {         
+        localStorage.removeItem('isAuthenticated');
         toast.success("Logged out successfully");
-        localStorage.removeItem("dashboard-auth");
         redirect("/login");
     };
 

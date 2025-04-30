@@ -14,9 +14,9 @@ export default function LoginPage() {
 
         // Simulate login
         if (email && password) {
-            localStorage.setItem("dashboard-auth", "1");
-            toast.success("Logged in successfully");
-            router.push("/dashboard");
+            localStorage.setItem('isAuthenticated', 'true');
+            toast.success('Logged in successfully');
+            router.push('/dashboard');
         } else {
             alert("Please enter both email and password");
         }

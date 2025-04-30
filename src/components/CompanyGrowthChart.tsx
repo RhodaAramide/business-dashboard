@@ -6,15 +6,23 @@ import {
   ResponsiveContainer,
   AreaChart,
   Area,
+  CartesianGrid,
 } from "recharts";
 
 const data = [
-  { month: "Jan", value: 300 },
-  { month: "Feb", value: 400 },
-  { month: "Mar", value: 350 },
-  { month: "Apr", value: 500 },
-  { month: "May", value: 450 },
-  { month: "Jun", value: 600 },
+    { month: "0", value: 100 },
+  { month: "1", value: 200 },
+  { month: "2", value: 450 },
+  { month: "3", value: 300 },
+  { month: "4", value: 700 },
+  { month: "5", value: 500 },
+  { month: "6", value: 800 },
+  { month: "7", value: 600 },
+  { month: "8", value: 900 },
+  { month: "9", value: 400 },
+  { month: "10", value: 650 },
+  { month: "11", value: 750 },
+  { month: "12", value: 1000 },
 ];
 
 export const CompanyGrowthChart = () => {
@@ -24,9 +32,11 @@ export const CompanyGrowthChart = () => {
     <div className="flex flex-col gap-2 w-full">
       <div className="flex justify-between items-center">
         <h1 className="font-medium text-grey-900 text-2xl">Recent shipment</h1>
-        <p className="border-grey-200 py-2 px-3 font-medium text-neutral-500 bg-white rounded-lg">See All</p>
+        <p className="border-grey-200 py-2 px-3 font-medium text-neutral-500 bg-white rounded-lg">
+          See All
+        </p>
       </div>
-      <div className="bg-white p-6 rounded-xl">
+      <div className="bg-white flex flex-col gap-4 p-6 rounded-xl">
         <div className="flex justify-between">
           <h2 className="text-lg font-semibold text-gray-800">
             Company Growth
@@ -63,9 +73,21 @@ export const CompanyGrowthChart = () => {
                 />
               </linearGradient>
             </defs>
-            <XAxis dataKey="month" />
-            <YAxis />
+            <XAxis
+              dataKey="month"
+              tickLine={false}
+              axisLine={false}
+              domain={[1, 12]}
+              tickFormatter={(tick) => (tick === "0" ? "" : tick)} // Skip rendering "0"
+            />
+            <YAxis
+              tickLine={false}
+              axisLine={false}
+              domain={[0, "dataMax"]}
+              tickCount={Math.ceil((1000 + 200) / 200) + 1} // Adjust tick count based on progression
+            />
             <Tooltip />
+            <CartesianGrid vertical={false} strokeDasharray="3 3" />
             <Area
               type="monotone"
               dataKey="value"

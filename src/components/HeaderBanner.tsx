@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export const HeaderBanner = () => {
   return (
      <div className="relative h-64 ">
@@ -11,7 +13,7 @@ export const HeaderBanner = () => {
         <h1 className="text-[42.47px] leading-[43.99px] uppercase font-black self-end pb-12">
           Keep up with your business needs
         </h1>
-        <img src="/images/banner.png" alt="Hero" className="w-[294px] h-auto" />
+        <Image src="/images/banner.png" alt="Hero" className="w-[294px] h-auto" />
       </div>
     </div>
    

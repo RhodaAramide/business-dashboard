@@ -23,7 +23,7 @@ export default function LoginPage() {
   };
 
   return (
-    <main className="flex items-center justify-center h-screen bg-gray-100">
+    <main className="flex items-center justify-center h-screen bg-gray-100 rounded-lg">
       <form
         onSubmit={handleLogin}
         className="bg-white p-8 rounded shadow-md w-full max-w-sm"
@@ -56,7 +56,7 @@ export default function LoginPage() {
 
         <button
           type="submit"
-          className="w-full bg-indigo-600 text-white py-2 px-4 rounded hover:bg-indigo-700 transition"
+          className="w-full bg-links text-white py-2 px-4 rounded hover:bg-indigo-700 transition"
         >
           Log In
         </button>

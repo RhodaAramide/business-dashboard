@@ -5,6 +5,7 @@ import toast from "react-hot-toast";
 import { AddressIcon, DashboardIcon, DollarIcon, HelpIcon, LogoutIcon, NotificationIcon, ServiceIcon, ShipmentIcon, WalletIcon } from "@/assets/icons";
 import Link from "next/link";
 import { redirect } from 'next/navigation';
+import Image from "next/image";
 
 const links = [
     { href: "/dashboard", icon: <DashboardIcon />, label: "Dashboard" },
@@ -85,7 +86,7 @@ export const Sidebar = () => {
                 {/* Profile Section */}
                 <div className="flex flex-col items-start p-0 gap-2 w-[180px] mb-8 mx-auto">
                     <div className="flex items-center p-4 gap-2 w-full h-20 rounded-lg">
-                        <img src="/images/Ellipse.png"
+                        <Image src="/images/Ellipse.png" alt="Profile"
                         className="size-12"/>
                         <div className="text-[#525252] text-sm">
                             <p>Firstname Lastname</p>

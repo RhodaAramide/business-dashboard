@@ -1,41 +1,66 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 
-const LoginPage = () => {
-    const router = useRouter();
-    const [email, setEmail] = useState("");
+export default function LoginPage() {
+  const router = useRouter();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-    function handleLogin() {
-        if (email) {
-            localStorage.setItem("user", email);
-            toast.success("Logged in successfully!")
-            router.push("/dashboard");
-        }
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    // Simulate login
+    if (email && password) {
+      document.cookie = `dashboard-auth=1; path=/`;
+      toast.success("Logged in successfully");
+      router.push("/dashboard");
+    } else {
+      alert("Please enter both email and password");
     }
+  };
 
-    return (
-        <div className="h-screen flex items-center justify-center bg-gray-100">
-            <div className="bg-white p-8 rounded-xl shadow-md w-full max-w-sm">
-                <h1 className="text-2xl font-bold mb-6 text-center">Login</h1>
-                <input
-                    type="email"
-                    placeholder="Enter Email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="w-full border p-3 rounded-lg mb-4"
-                />
-                <button
-                    onClick={handleLogin}
-                    className="w-full bg-indigo-600 text-white p-3 rounded-lg"
-                >
-                    Login
-                </button>
-            </div>
-        </div>
-    );
-};
+  return (
+    <main className="flex items-center justify-center h-screen bg-gray-100">
+      <form
+        onSubmit={handleLogin}
+        className="bg-white p-8 rounded shadow-md w-full max-w-sm"
+      >
+        <h1 className="text-2xl font-semibold mb-6 text-center">Login</h1>
 
-export default LoginPage;
+        <label className="block mb-2 text-sm font-medium text-gray-700">
+          Email
+        </label>
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          className="w-full px-4 py-2 mb-4 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          placeholder="you@example.com"
+          required
+        />
+
+        <label className="block mb-2 text-sm font-medium text-gray-700">
+          Password
+        </label>
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          className="w-full px-4 py-2 mb-6 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          placeholder="********"
+          required
+        />
+
+        <button
+          type="submit"
+          className="w-full bg-indigo-600 text-white py-2 px-4 rounded hover:bg-indigo-700 transition"
+        >
+          Log In
+        </button>
+      </form>
+    </main>
+  );
+}

@@ -4,6 +4,7 @@ import { Menu } from "lucide-react";
 import toast from "react-hot-toast";
 import { AddressIcon, DashboardIcon, DollarIcon, HelpIcon, LogoutIcon, NotificationIcon, ServiceIcon, ShipmentIcon, WalletIcon } from "@/assets/icons";
 import Link from "next/link";
+import { redirect } from 'next/navigation';
 
 const links = [
     { href: "/dashboard", icon: <DashboardIcon />, label: "Dashboard" },
@@ -26,8 +27,11 @@ export const Sidebar = () => {
         }
     }, []);
 
-    const handleLogout = () => {
+    const handleLogout = () => {        
         toast.success("Logged out successfully");
+        document.cookie =
+      'dashboard-auth=; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+        redirect("/login");
     };
 
     return (

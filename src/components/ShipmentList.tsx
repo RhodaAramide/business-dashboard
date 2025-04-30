@@ -1,48 +1,16 @@
 import { CaretIcon, FlagIcon, TimerIcon } from "@/assets/icons";
+import Link from "next/link";
+import { shipments } from "@/data/shipments";
 
-const mockShipments = [
-  {
-    trackingId: "MAF-100-234-298",
-    sender: "Bunmi Tanny",
-    receiver: "Mercy",
-    pickUpFrom: "Lagos, Nigeria",
-    deliveryTo: "Oyo, Nigeria",
-    amount: "#3000",
-    status: "In-Transit",
-    processingTime: "10 hours",
-    paid: true,
-  },
-  {
-    trackingId: "MAF-200-345-678",
-    sender: "John Doe",
-    receiver: "Jane Smith",
-    pickUpFrom: "Abuja, Nigeria",
-    deliveryTo: "Kaduna, Nigeria",
-    amount: "#5000",
-    status: "Delayed",
-    processingTime: "5 hours",
-    paid: false,
-  },
-  {
-    trackingId: "MAF-300-456-789",
-    sender: "Alice Brown",
-    receiver: "Bob White",
-    pickUpFrom: "Port Harcourt, Nigeria",
-    deliveryTo: "Enugu, Nigeria",
-    amount: "#4000",
-    status: "Delivered",
-    processingTime: "8 hours",
-    paid: true,
-  },
-];
+
 
 export const ShipmentList = () => {
   return (
     <div className="w-full flex flex-col gap-2">
-      {mockShipments.map(
-        (shipment: (typeof mockShipments)[0], index: number) => (
+      {shipments.map(
+        (shipment) => (
           <div
-            key={index}
+            key={shipment.trackingId}
             className="bg-white p-6 rounded-xl flex flex-col gap-4"
           >
             <div className="flex flex-col gap-4">
@@ -115,9 +83,11 @@ export const ShipmentList = () => {
                   </span>
                 </p>
                 <div className="flex gap-2 items-center">
+                <Link href={`/dashboard/shipments/${shipment.trackingId}`} key={shipment.trackingId}>
                   <button className="px-4 py-2 border border-banner text-banner rounded-lg text-xs">
                     View More
                   </button>
+                  </Link>
                   {shipment.paid ? (
                     <button className="px-4 py-2 bg-[#EFEDED] text-[#808080] font-semibold rounded-lg text-xs">
                       Paid

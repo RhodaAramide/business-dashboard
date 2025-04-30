@@ -30,8 +30,7 @@ export const Sidebar = () => {
 
     const handleLogout = () => {        
         toast.success("Logged out successfully");
-        document.cookie =
-      'dashboard-auth=; path=/;';
+        localStorage.removeItem("dashboard-auth");
         redirect("/login");
     };
 

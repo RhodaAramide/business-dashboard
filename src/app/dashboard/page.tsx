@@ -21,16 +21,16 @@ export default function DashboardPage() {
   }, [router]);
 
   return (
-    <div className="flex min-h-screen">
+    <div className="flex min-h-screen w-screen bg-neutral-50 font-sans overflow-scroll">
       <Sidebar />
       <motion.main
-        className="flex-1  bg-gray-50 overflow-auto"
+        className="flex-1 overflow-auto"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
         <Topbar />
-        <div className="flex flex-col p-6 ">
+        <div className="flex flex-col gap-8 p-6 ">
           <HeaderBanner />
           <OverviewSection />
           <CompanyGrowthChart />

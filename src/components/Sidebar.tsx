@@ -1,23 +1,37 @@
-
-
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Menu } from "lucide-react";
-// import { useRouter } from "next/router";
 import toast from "react-hot-toast";
+import { AddressIcon, DashboardIcon, DollarIcon, HelpIcon, LogoutIcon, NotificationIcon, ServiceIcon, ShipmentIcon, WalletIcon } from "@/assets/icons";
+import Link from "next/link";
+
+const links = [
+    { href: "/dashboard", icon: <DashboardIcon />, label: "Dashboard" },
+    { href: "/shipments", icon: <ShipmentIcon />, label: "Shipments" },
+    { href: "/services", icon: <ServiceIcon />, label: "Our Services" },
+    { href: "/notifications", icon: <NotificationIcon />, label: "Notifications" },
+    { href: "/wallet", icon: <WalletIcon />, label: "Wallet" },
+    { href: "/addresses", icon: <AddressIcon />, label: "My Addresses" },
+    { href: "/invite", icon: <DollarIcon />, label: "Invite & Earn" },
+    { href: "/help", icon: <HelpIcon />, label: "Help Center" },
+];
 
 export const Sidebar = () => {
     const [open, setOpen] = useState(false);
-    // const router = useRouter();
+    const [currentPath, setCurrentPath] = useState("");
+
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+            setCurrentPath(window.location.pathname);
+        }
+    }, []);
 
     const handleLogout = () => {
-        // Perform any logout logic here (e.g., clearing tokens, session, etc.)
         toast.success("Logged out successfully");
-        // router.push("/login"); // Redirect to the login page
     };
 
     return (
-        <>
+        <div className="font-sans">
             {/* Mobile Menu Icon */}
             <div className="md:hidden p-4">
                 <Menu
@@ -29,7 +43,7 @@ export const Sidebar = () => {
 
             {/* Sidebar */}
             <motion.aside
-                className="w-64 h-full bg-white shadow-md flex flex-none flex-col z-50"
+                className="w-64 h-[1213px] bg-white border-r border-neutral-200 flex flex-none flex-col justify-between "
                 initial={{ x: -250 }}
                 animate={{ x: 0 }}
                 exit={{ x: -250 }}
@@ -43,60 +57,32 @@ export const Sidebar = () => {
                 </button>
 
                 {/* Logo Section */}
-                <div className="flex flex-col justify-center items-center p-6 gap-2 border-b border-gray-300">
-                    <div className="hidden w-[170px] h-12"></div>
+                <div className="flex flex-col justify-center items-center w-full h-24 gap-2  border-b border-neutral-200">
                 </div>
 
                 {/* Navigation Section */}
-                <nav className="flex flex-col items-center justify-center p-8 gap-2 flex-grow">
-                    <a
-                        href="#"
-                        className="flex items-center p-4 gap-2 w-full h-14 bg-[#5A65AB] rounded-lg text-[#EBFFE2] font-semibold text-sm"
-                    >
-                        <div className="w-6 h-6 border-2 border-[#EBFFE2]"></div>
-                        Dashboard
-                    </a>
-                    <a
-                        href="#"
-                        className="flex items-center p-4 gap-2 w-full h-14 rounded-lg text-[#525252] font-normal text-sm"
-                    >
-                        <div className="w-6 h-6 border-2 border-[#525252]"></div>
-                        Shipments
-                    </a>
-                    <a
-                        href="#"
-                        className="flex items-center p-4 gap-2 w-full h-14 rounded-lg text-[#525252] font-normal text-sm"
-                    >
-                        <div className="w-6 h-6 border-2 border-[#525252]"></div>
-                        Services
-                    </a>
-                    <a
-                        href="#"
-                        className="flex items-center p-4 gap-2 w-full h-14 rounded-lg text-[#525252] font-normal text-sm"
-                    >
-                        <div className="w-6 h-6 border-2 border-[#525252]"></div>
-                        Wallet
-                    </a>
-                    <a
-                        href="#"
-                        className="flex items-center p-4 gap-2 w-full h-14 rounded-lg text-[#525252] font-normal text-sm"
-                    >
-                        <div className="w-6 h-6 border-2 border-[#525252]"></div>
-                        Invite & Earn
-                    </a>
-                    <a
-                        href="#"
-                        className="flex items-center p-4 gap-2 w-full h-14 rounded-lg text-[#525252] font-normal text-sm"
-                    >
-                        <div className="w-6 h-6 border-2 border-[#525252]"></div>
-                        Help Center
-                    </a>
+                <nav className="flex flex-col items-center p-8 gap-2 flex-grow">
+                    {links.map((link) => (
+                        <Link
+                            key={link.href}
+                            href={link.href}
+                            className={`flex items-center p-4 gap-2 w-full h-14 rounded-lg ${
+                                currentPath === link.href
+                                    ? "bg-banner text-primary-50 font-semibold text-base"
+                                    : "text-secondary font-normal text-base"
+                            }`}
+                        >
+                            {link.icon}
+                            {link.label}
+                        </Link>
+                    ))}
                 </nav>
 
                 {/* Profile Section */}
                 <div className="flex flex-col items-start p-0 gap-2 w-[180px] mb-8 mx-auto">
                     <div className="flex items-center p-4 gap-2 w-full h-20 rounded-lg">
-                        <div className="w-12 h-12 bg-gray-300 rounded-full"></div>
+                        <img src="/images/Ellipse.png"
+                        className="size-12"/>
                         <div className="text-[#525252] text-sm">
                             <p>Firstname Lastname</p>
                         </div>
@@ -105,11 +91,11 @@ export const Sidebar = () => {
                         onClick={handleLogout}
                         className="flex items-center p-4 gap-2 w-full h-14 rounded-lg text-[#525252] font-normal text-sm"
                     >
-                        <div className="w-6 h-6 border-2 border-[#525252]"></div>
+                        <LogoutIcon />
                         Log Out
                     </button>
                 </div>
             </motion.aside>
-        </>
+        </div>
     );
 };

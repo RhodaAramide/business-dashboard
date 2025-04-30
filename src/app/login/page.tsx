@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 
 export default function LoginPage() {
@@ -14,9 +14,10 @@ export default function LoginPage() {
 
     // Simulate login
     if (email && password) {
-      document.cookie = `dashboard-auth=1; path=/`;
+      document.cookie = `dashboard-auth=1; path=/dashboard;`;
       toast.success("Logged in successfully");
       router.push("/dashboard");
+      redirect("/dashboard");
     } else {
       alert("Please enter both email and password");
     }

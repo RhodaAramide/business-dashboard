@@ -9,7 +9,7 @@ import {
   CartesianGrid,
 } from "recharts";
 
-const data = [
+const dataYear = [
   { month: "0", value: 100 },
   { month: "1", value: 200 },
   { month: "2", value: 450 },
@@ -25,8 +25,37 @@ const data = [
   { month: "12", value: 1000 },
 ];
 
+const dataMonth = [
+  { day: "1", value: 50 },
+  { day: "2", value: 80 },
+  { day: "3", value: 120 },
+  { day: "4", value: 90 },
+  { day: "5", value: 150 },
+  { day: "6", value: 200 },
+  { day: "7", value: 180 },
+  { day: "8", value: 220 },
+  { day: "9", value: 170 },
+  { day: "10", value: 250 },
+];
+
+const dataWeek = [
+  { day: "Mon", value: 30 },
+  { day: "Tue", value: 50 },
+  { day: "Wed", value: 70 },
+  { day: "Thu", value: 60 },
+  { day: "Fri", value: 90 },
+  { day: "Sat", value: 100 },
+  { day: "Sun", value: 80 },
+];
+
 export const CompanyGrowthChart = () => {
   const [activeTab, setActiveTab] = useState("Year");
+
+  const getData = () => {
+    if (activeTab === "Year") return dataYear;
+    if (activeTab === "Month") return dataMonth;
+    if (activeTab === "Week") return dataWeek;
+  };
 
   return (
     <div className="flex flex-col gap-4 w-full">
@@ -61,7 +90,7 @@ export const CompanyGrowthChart = () => {
         </div>
         <div className="w-full h-64 sm:h-80">
           <ResponsiveContainer width="100%" height="100%">
-            <AreaChart data={data}>
+            <AreaChart data={getData()}>
               <defs>
                 <linearGradient id="colorValue" x1="0" y1="0" x2="0" y2="1">
                   <stop
@@ -77,17 +106,20 @@ export const CompanyGrowthChart = () => {
                 </linearGradient>
               </defs>
               <XAxis
-                dataKey="month"
+                dataKey={activeTab === "Year" ? "month" : "day"}
                 tickLine={false}
                 axisLine={false}
-                domain={[1, 12]}
-                tickFormatter={(tick) => (tick === "0" ? "" : tick)}
+                domain={activeTab === "Year" ? [1, 12] : undefined}
+                tickFormatter={(tick) =>
+                  activeTab === "Year" && tick === "0" ? "" : tick
+                }
               />
               <YAxis
                 tickLine={false}
                 axisLine={false}
                 domain={[0, "dataMax"]}
                 tickCount={Math.ceil((1000 + 200) / 200) + 1}
+
               />
               <Tooltip />
               <CartesianGrid vertical={false} strokeDasharray="3 3" />

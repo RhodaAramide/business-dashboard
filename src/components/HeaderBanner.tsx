@@ -19,7 +19,7 @@ export const HeaderBanner = () => {
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
         <motion.h1
-          className="text-[24px] md:text-[36px] lg:text-[42.47px] leading-[1.2] uppercase font-black text-center md:text-left py-4 md:pb-8 self-end md:self-end"
+          className="text-[22px] md:text-[36px] lg:text-[42.47px] leading-[1.2] uppercase font-black text-center md:text-left py-4 md:pb-8 self-end md:self-end"
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}

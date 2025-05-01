@@ -64,7 +64,7 @@ Check out the live version of the Shipment Tracker Dashboard here: [Shipment Tra
 - Login at `/login` page using email and password.
 
 ## 🧩 Folder Structure
-
+```markdown
 ├── public/
 │   ├── images/            # Static assets like images and icons
 │
@@ -78,7 +78,7 @@ Check out the live version of the Shipment Tracker Dashboard here: [Shipment Tra
 │   ├── components/        # Reusable components
 │   ├── data/              # Mock data
 
-
+```
 
 ## 👨‍💻 Author
 

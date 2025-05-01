@@ -27,7 +27,6 @@ A fully responsive and pixel-perfect shipment tracking dashboard built with:
 | Next.js (App Router)| Latest   |
 | Tailwind CSS        | 3.x      |
 | TypeScript          | 5.x      |
-| Zustand             | 4.x      |
 | Framer Motion       | 10.x     |
 | React Hot Toast     | 2.x      |
 
@@ -78,22 +77,21 @@ Check out the live version of the Shipment Tracker Dashboard here: [Shipment Tra
 │   │   └── globals.css    # Global styles
 │   ├── components/        # Reusable components
 │   ├── data/              # Mock data
-```
-```markdown
+
+
 
 ## 👨‍💻 Author
 
-- GitHub: [@RhodaAramide](https://github.com/RhodaAramide)
+- GitHub: [RhodaAramide](https://github.com/RhodaAramide)
 
----
 
 ## 📝 License
 
-This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
+This project is licensed under the MIT License.
 
 ## 🤝 Contributing
 
 Contributions are welcome! Please open an issue or submit a pull request for any improvements or bug fixes.
 
----
+
 ```

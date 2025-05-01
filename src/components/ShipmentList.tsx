@@ -45,13 +45,13 @@ export const ShipmentList = () => {
 
             {/* Details Section */}
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center border-b border-gray-300 pb-4 gap-4">
-              <p className="flex flex-col gap-2 text-xs text-gray-500">
+              <p className="flex flex-col gap-2 text-xs capitalize text-gray-500">
                 Pick up from{" "}
                 <span className="flex items-center gap-2 text-gray-900 text-sm">
                   <FlagIcon /> {shipment.pickUpFrom}
                 </span>
               </p>
-              <p className="flex flex-col gap-2 text-xs text-gray-500">
+              <p className="flex flex-col gap-2 text-xs capitalize text-gray-500">
                 Delivery to{" "}
                 <span className="flex items-center gap-2 text-gray-900 text-sm">
                   <FlagIcon /> {shipment.deliveryTo}
@@ -60,7 +60,7 @@ export const ShipmentList = () => {
               <p className="flex flex-col gap-2 text-xs text-gray-500">
                 Amount{" "}
                 <span className="text-gray-900 text-sm">
-                  {shipment.amount}
+                  N{shipment.amount}
                 </span>
               </p>
               <p className="flex flex-col gap-2 text-xs text-gray-500">

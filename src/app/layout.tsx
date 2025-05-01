@@ -12,7 +12,7 @@ export const metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
-      <body className="flex min-h-screen w-screen bg-neutral-50 font-sans overflow-scroll">
+      <body className="flex min-h-screen w-screen bg-neutral-50 font-dmsans overflow-scroll">
         <ToastProvider />
         <Sidebar />
         <div className="flex-1 flex flex-col overflow-auto">

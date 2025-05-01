@@ -19,7 +19,7 @@ export default function DashboardPage() {
   }, [router]);
 
   return (
-    <div className="flex w-full h-full bg-neutral-50 font-sans overflow-scroll">
+    <div className="flex w-full h-full bg-neutral-50 font-dmsans overflow-scroll">
       <motion.main
         className="flex-1 overflow-auto"
         initial={{ opacity: 0, y: 30 }}

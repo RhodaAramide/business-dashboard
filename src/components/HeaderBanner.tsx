@@ -19,7 +19,7 @@ export const HeaderBanner = () => {
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
         <motion.h1
-          className="text-[22px] md:text-[36px] lg:text-[42.47px] leading-[1.2] uppercase font-black text-center md:text-left py-4 md:pb-8 self-end md:self-end"
+          className="max-w-md text-[22px] md:text-[42.47px] md:leading-[44px] leading-[1.2] uppercase font-black text-center md:text-left py-4 md:pb-8 self-end md:self-end tracking-[-2%]"
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
@@ -27,7 +27,7 @@ export const HeaderBanner = () => {
           Keep up with your business needs
         </motion.h1>
         <motion.div
-          className="w-48 h-48 md:w-[295px] md:h-[295px] flex justify-center items-center"
+          className="w-48 h-48 md:w-[295px] md:h-[295px] flex justify-start items-start"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}

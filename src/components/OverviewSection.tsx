@@ -8,7 +8,7 @@ import { ReactNode } from "react";
 import { motion } from "framer-motion";
 
 const shipments: { title: string; value: number; icon: ReactNode }[] = [
-  { title: "Total Shipments", value: 34, icon: <TruckIcon /> },
+  { title: "Total Shipment", value: 34, icon: <TruckIcon /> },
   { title: "Total Exports", value: 34, icon: <ArrowUpIcon /> },
   { title: "Total Imports", value: 34, icon: <ArrowDownIcon /> },
 ];
@@ -58,7 +58,7 @@ export const OverviewSection = () => {
           transition={{ duration: 0.5 }}
         >
           <h2 className="text-xs font-light text-white/70">Your Balance</h2>
-          <p className="text-2xl font-black text-white/90">₦3,000,000.28</p>
+          <p className="text-2xl font-black text-white/90">N3,000,000.28</p>
           <button className="w-fit bg-white py-2 px-4 rounded-lg text-links font-medium text-xs mt-4">
             Fund Waitlist
           </button>
@@ -84,13 +84,13 @@ export const OverviewSection = () => {
                 >
                   {item.icon}
                 </p>
-                <h2 className="text-sm font-medium text-gray-500">
+                <h2 className="text-xs font-medium text-gray-500">
                   {item.title}
                 </h2>
               </div>
               <div className="flex flex-col gap-2">
                 <div className="flex gap-2 items-center">
-                  <p className="flex items-center text-2xl font-medium text-[#353535]">
+                  <p className="flex items-center text-2xl font-montserrat font-medium text-[#353535]">
                     {item.value}
                   </p>
                   <p className="flex items-center gap-0.5 text-primary-800">

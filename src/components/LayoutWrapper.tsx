@@ -13,9 +13,9 @@ export const LayoutWrapper = ({ children }: { children: ReactNode }) => {
   return (
       <div className="flex min-h-screen w-screen bg-neutral-50 font-dmsans overflow-scroll">
         {!isAuthPage && <Sidebar />}
-        <div className="flex-1 flex flex-col overflow-auto">
+        <div className="flex-1 flex flex-col">
           {!isAuthPage && <Topbar />}
-          <main className="flex-1 overflow-auto">{children}</main>
+          <main className="flex-1">{children}</main>
         </div>
       </div>
   );

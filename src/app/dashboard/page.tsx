@@ -19,9 +19,9 @@ export default function DashboardPage() {
   }, [router]);
 
   return (
-    <div className="flex w-full h-full bg-neutral-50 font-dmsans overflow-scroll">
+    <div className="flex w-full h-full bg-neutral-50 font-dmsans">
       <motion.main
-        className="flex-1 overflow-auto"
+        className="flex-1"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}

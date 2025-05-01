@@ -2,6 +2,7 @@
 
 "use client";
 
+import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Menu } from "lucide-react";
@@ -34,18 +35,19 @@ const links: LinkItem[] = [
   { href: "/notifications", icon: <NotificationIcon />, label: "Notifications" },
   { href: "/wallet", icon: <WalletIcon />, label: "Wallet" },
   { href: "/addresses", icon: <AddressIcon />, label: "My Addresses" },
-  { href: "/invite", icon: <DollarIcon />, label: "Invite & Earn" },
+  { href: "/referral", icon: <DollarIcon />, label: "Invite & Earn" },
   { href: "/help", icon: <HelpIcon />, label: "Help Center" },
 ];
 
 export const Sidebar: React.FC = () => {
   const [open, setOpen] = useState(false);
-  const [currentPath, setCurrentPath] = useState<string>("");
+    const currentPath = usePathname();
+
   const [isDesktop, setIsDesktop] = useState<boolean>(false);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      setCurrentPath(window.location.pathname);
+      // Removed incorrect setCurrentPath call
       const checkScreenSize = () => setIsDesktop(window.innerWidth >= 768);
       checkScreenSize();
       window.addEventListener("resize", checkScreenSize);
@@ -68,7 +70,7 @@ export const Sidebar: React.FC = () => {
 
       {/* Sidebar */}
       <motion.aside
-        className={`fixed top-0 left-0 h-full md:h-[1213px] bg-white border-r border-neutral-200 flex flex-col justify-between z-50 transition-transform md:translate-x-0 md:static md:w-64 ${
+        className={`fixed top-0 left-0 h-full md:h-[1213px] bg-white border-r border-neutral-200 shadow-sm flex flex-col justify-between z-50 transition-transform md:translate-x-0 md:static md:w-64 ${
           open ? "translate-x-0" : "-translate-x-full md:translate-x-0"
         }`}
         initial={{ x: -250 }}

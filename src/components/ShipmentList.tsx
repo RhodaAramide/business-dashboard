@@ -94,16 +94,16 @@ export const ShipmentList = () => {
                   href={`/dashboard/shipments/${shipment.trackingId}`}
                   key={shipment.trackingId}
                 >
-                  <button className="px-4 py-2 border border-banner text-banner rounded-lg text-xs">
+                  <button className="px-4 py-2 border border-banner text-banner rounded-lg text-xs cursor-pointer">
                     View More
                   </button>
                 </Link>
                 {shipment.paid ? (
-                  <button className="px-4 py-2 bg-gray-200 text-gray-500 font-semibold rounded-lg text-xs">
+                  <button className="px-4 py-2 bg-gray-200 text-gray-500 font-semibold rounded-lg text-xs cursor-pointer">
                     Paid
                   </button>
                 ) : (
-                  <button className="px-4 py-2 bg-indigo-600 text-white rounded-lg text-xs">
+                  <button className="px-4 py-2 bg-indigo-600 text-white rounded-lg text-xs cursor-pointer">
                     Pay now
                   </button>
                 )}

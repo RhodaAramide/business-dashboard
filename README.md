@@ -2,26 +2,23 @@
 # 📦 Shipment Tracker Dashboard
 
 A fully responsive and pixel-perfect shipment tracking dashboard built with:
-
 - Next.js (App Router)
 - TypeScript
 - Tailwind CSS
-- Zustand (State Management)
 - Framer Motion (Animations)
 - React Hot Toast (Notifications)
-- Dark Mode Toggle
 - Protected Routes (Login/Logout)
 
 ## 🚀 Features
 
 - Pixel-perfect responsive layout
 - Dynamic shipment listing and detail pages
-- Authentication using cookies and middleware
-- Global state management using Zustand
-- Light/Dark mode toggle
+- Authentication using local storage
 - Toast notifications for login/logout
-- Skeleton loading states
 - Fully deployed on Vercel
+- SEO-friendly with optimized meta tags
+- "View More" button in shipment listing works seamlessly
+- Tabs for different sections are fully functional
 
 ## 🔥 Technologies
 
@@ -38,12 +35,12 @@ A fully responsive and pixel-perfect shipment tracking dashboard built with:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/your-repo-name.git
+   git clone https://github.com/RhodaAramide/business-dashboard.git
    ```
 
 2. Install dependencies:
    ```bash
-   cd your-repo-name
+   cd business-dashboard
    npm install
    ```
 
@@ -57,26 +54,46 @@ A fully responsive and pixel-perfect shipment tracking dashboard built with:
 ## ✈️ Deployment
 
 This project is deployed using [Vercel](https://vercel.com/).  
-Every push to `main` branch auto-deploys.
+Every push to `master` branch auto-deploys.
+
+## 🌐 Live Demo
+
+Check out the live version of the Shipment Tracker Dashboard here: [Shipment Tracker Dashboard](https://business-dashboard-mu.vercel.app/dashboard)
 
 ## 🔒 Authentication
 
-- Login at `/login` page using a preset password.
-- Cookie-based protection using Next.js Middleware.
+- Login at `/login` page using email and password.
 
-Password used: `yourStrongPassword`
-
-## 📸 Demo Screenshots
-
-| Dashboard Overview | Dark Mode Example |
-|:------------------:|:-----------------:|
-| ![dashboard_light](./screenshots/dashboard_light.png) | ![dashboard_dark](./screenshots/dashboard_dark.png) |
+## 🧩 Folder Structure
+```markdown
+├── public/
+│   ├── images/            # Static assets like images and icons
+│
+├── src/
+│   ├── app/               # Next.js App Router structure
+│   │   ├── (auth)/        # Authentication-related pages
+│   │   ├── (dashboard)/   # Dashboard-related pages
+│   │   ├── layout.tsx     # Root layout
+│   │   ├── page.tsx       # Root page
+│   │   └── globals.css    # Global styles
+│   ├── components/        # Reusable components
+│   ├── data/              # Mock data
+```
+```markdown
 
 ## 👨‍💻 Author
 
-- GitHub: [@yourusername](https://github.com/yourusername)
-- LinkedIn: [Your LinkedIn Profile](https://linkedin.com/in/your-profile)
+- GitHub: [@RhodaAramide](https://github.com/RhodaAramide)
+
+---
+
+## 📝 License
+
+This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
+
+## 🤝 Contributing
+
+Contributions are welcome! Please open an issue or submit a pull request for any improvements or bug fixes.
 
 ---
 ```
-

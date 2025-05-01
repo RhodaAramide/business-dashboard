@@ -15,8 +15,8 @@ export default function ShipmentDetailPage({ params }: { params: Promise<{ id: s
     }
 
     return (
-        <div className="p-6">
-            <Link href="/dashboard" className="flex items-center text-links hover:underline mb-4">
+        <div className="p-6 max-w-4xl mx-auto">
+            <Link href="/dashboard" className="flex items-center text-blue-600 hover:underline mb-6">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -29,16 +29,34 @@ export default function ShipmentDetailPage({ params }: { params: Promise<{ id: s
                 </svg>
                 Back to Dashboard
             </Link>
-            <h1 className="text-2xl font-bold mb-6">Shipment Details</h1>
-            <div className="bg-white p-6 rounded-lg shadow space-y-4">
-                <p><span className="font-semibold">Tracking ID:</span> {shipment?.trackingId}</p>
-                <p><span className="font-semibold">Sender:</span> {shipment?.sender}</p>
-                <p><span className="font-semibold">Receiver:</span> {shipment?.receiver}</p>
-                <p><span className="font-semibold">Pickup Location:</span> {shipment?.pickUpFrom}</p>
-                <p><span className="font-semibold">Delivery Location:</span> {shipment?.deliveryTo}</p>
-                <p><span className="font-semibold">Amount:</span> ₦{shipment?.amount}</p>
-                <p><span className="font-semibold">Status:</span> {shipment?.status}</p>
-                <p><span className="font-semibold">Processing Time:</span> {shipment?.processingTime}</p>
+            <h1 className="text-3xl font-extrabold text-gray-800 mb-8">Shipment Details</h1>
+            <div className="bg-white p-8 rounded-lg shadow-lg space-y-6">
+                <div className="grid grid-cols-2 gap-4">
+                    <p className="text-gray-600">
+                        <span className="font-semibold text-gray-800">Tracking ID:</span> {shipment?.trackingId}
+                    </p>
+                    <p className="text-gray-600">
+                        <span className="font-semibold text-gray-800">Sender:</span> {shipment?.sender}
+                    </p>
+                    <p className="text-gray-600">
+                        <span className="font-semibold text-gray-800">Receiver:</span> {shipment?.receiver}
+                    </p>
+                    <p className="text-gray-600">
+                        <span className="font-semibold text-gray-800">Pickup Location:</span> {shipment?.pickUpFrom}
+                    </p>
+                    <p className="text-gray-600">
+                        <span className="font-semibold text-gray-800">Delivery Location:</span> {shipment?.deliveryTo}
+                    </p>
+                    <p className="text-gray-600">
+                        <span className="font-semibold text-gray-800">Amount:</span> ₦{shipment?.amount}
+                    </p>
+                    <p className="text-gray-600">
+                        <span className="font-semibold text-gray-800">Status:</span> {shipment?.status}
+                    </p>
+                    <p className="text-gray-600">
+                        <span className="font-semibold text-gray-800">Processing Time:</span> {shipment?.processingTime}
+                    </p>
+                </div>
             </div>
         </div>
     );

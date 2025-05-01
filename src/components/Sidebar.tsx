@@ -4,7 +4,7 @@ import { Menu } from "lucide-react";
 import toast from "react-hot-toast";
 import { AddressIcon, DashboardIcon, DollarIcon, HelpIcon, LogoutIcon, NotificationIcon, ServiceIcon, ShipmentIcon, WalletIcon } from "@/assets/icons";
 import Link from "next/link";
-import { redirect } from 'next/navigation';
+import { redirect } from "next/navigation";
 import Image from "next/image";
 
 const links = [
@@ -28,8 +28,8 @@ export const Sidebar = () => {
         }
     }, []);
 
-    const handleLogout = () => {         
-        localStorage.removeItem('isAuthenticated');
+    const handleLogout = () => {
+        localStorage.removeItem("isAuthenticated");
         toast.success("Logged out successfully");
         redirect("/login");
     };
@@ -47,9 +47,11 @@ export const Sidebar = () => {
 
             {/* Sidebar */}
             <motion.aside
-                className="w-64 h-[1213px] bg-white border-r border-neutral-200 flex flex-none flex-col justify-between "
+                className={`fixed top-0 left-0 h-full bg-white border-r border-neutral-200 flex flex-col justify-between z-50 transition-transform ${
+                    open ? "translate-x-0" : "-translate-x-full"
+                } md:translate-x-0 md:static md:w-64`}
                 initial={{ x: -250 }}
-                animate={{ x: 0 }}
+                animate={{ x: open ? 0 : -250 }}
                 exit={{ x: -250 }}
                 transition={{ type: "spring", stiffness: 200 }}
             >
@@ -61,7 +63,7 @@ export const Sidebar = () => {
                 </button>
 
                 {/* Logo Section */}
-                <div className="flex flex-col justify-center items-center w-full h-24 gap-2  border-b border-neutral-200">
+                <div className="flex flex-col justify-center items-center w-full h-24 gap-2 border-b border-neutral-200">
                 </div>
 
                 {/* Navigation Section */}
@@ -85,7 +87,12 @@ export const Sidebar = () => {
                 {/* Profile Section */}
                 <div className="flex flex-col items-start p-0 gap-2 w-[180px] mb-8 mx-auto">
                     <div className="flex items-center p-4 gap-2 w-full h-20 rounded-lg">
-                        <Image src="/images/Ellipse.png" alt="Profile" width={48}   height={48} />
+                        <Image
+                            src="/images/Ellipse.png"
+                            alt="Profile"
+                            width={48}
+                            height={48}
+                        />
                         <div className="text-[#525252] text-sm">
                             <p>Firstname Lastname</p>
                         </div>
@@ -99,6 +106,14 @@ export const Sidebar = () => {
                     </button>
                 </div>
             </motion.aside>
+
+            {/* Overlay for mobile */}
+            {open && (
+                <div
+                    className="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden"
+                    onClick={() => setOpen(false)}
+                ></div>
+            )}
         </div>
     );
 };

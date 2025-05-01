@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 import {
   XAxis,
   YAxis,
@@ -58,23 +59,43 @@ export const CompanyGrowthChart = () => {
   };
 
   return (
-    <div className="flex flex-col gap-4 w-full">
+    <motion.div
+      className="flex flex-col gap-4 w-full"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+    >
       <div className="flex justify-between items-start sm:items-center gap-2">
-        <h1 className="font-medium text-gray-900 text-xl sm:text-2xl">
+        <motion.h1
+          className="font-medium text-gray-900 text-xl sm:text-2xl"
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
           Recent shipment
-        </h1>
-        <p className="border border-gray-200 py-2 px-3 font-medium text-neutral-500 bg-white rounded-lg cursor-pointer">
+        </motion.h1>
+        <motion.p
+          className="border border-gray-200 py-2 px-3 font-medium text-neutral-500 bg-white rounded-lg cursor-pointer"
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
           See All
-        </p>
+        </motion.p>
       </div>
-      <div className="bg-white flex flex-col gap-4 p-4 sm:p-6 rounded-xl">
+      <motion.div
+        className="bg-white flex flex-col gap-4 p-4 sm:p-6 rounded-xl"
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5, delay: 0.3 }}
+      >
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
           <h2 className="text-lg font-semibold text-gray-800">
             Company Growth
           </h2>
           <div className="flex space-x-2 sm:space-x-4 bg-gray-100 p-1 rounded-lg">
             {["Year", "Month", "Week"].map((tab) => (
-              <button
+              <motion.button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
                 className={`px-3 sm:px-4 py-2 rounded-lg text-sm ${
@@ -82,13 +103,20 @@ export const CompanyGrowthChart = () => {
                     ? "bg-white text-gray-800 font-semibold"
                     : "text-gray-500"
                 }`}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
                 {tab}
-              </button>
+              </motion.button>
             ))}
           </div>
         </div>
-        <div className="w-full h-64 sm:h-80">
+        <motion.div
+          className="w-full h-64 sm:h-80"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+        >
           <ResponsiveContainer width="100%" height="100%">
             <AreaChart data={getData()}>
               <defs>
@@ -119,7 +147,6 @@ export const CompanyGrowthChart = () => {
                 axisLine={false}
                 domain={[0, "dataMax"]}
                 tickCount={Math.ceil((1000 + 200) / 200) + 1}
-
               />
               <Tooltip />
               <CartesianGrid vertical={false} strokeDasharray="3 3" />
@@ -132,8 +159,8 @@ export const CompanyGrowthChart = () => {
               />
             </AreaChart>
           </ResponsiveContainer>
-        </div>
-      </div>
-    </div>
+        </motion.div>
+      </motion.div>
+    </motion.div>
   );
 };

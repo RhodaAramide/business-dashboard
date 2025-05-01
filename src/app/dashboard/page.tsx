@@ -30,7 +30,7 @@ export default function DashboardPage() {
         transition={{ duration: 0.5 }}
       >
         <Topbar />
-        <div className="flex flex-col gap-8 py-4 px-4 md:px-2 ">
+        <div className="flex flex-col gap-8 py-4 px-4 ">
           <HeaderBanner />
           <OverviewSection />
           <CompanyGrowthChart />

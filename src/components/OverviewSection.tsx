@@ -5,6 +5,7 @@ import {
   TruckIcon,
 } from "@/assets/icons";
 import { ReactNode } from "react";
+import { motion } from "framer-motion";
 
 const shipments: { title: string; value: number; icon: ReactNode }[] = [
   { title: "Total Shipments", value: 34, icon: <TruckIcon /> },
@@ -14,10 +15,27 @@ const shipments: { title: string; value: number; icon: ReactNode }[] = [
 
 export const OverviewSection = () => {
   return (
-    <div className="w-full flex flex-col gap-4 p-4">
-      <div className="flex  justify-between items-start sm:items-center gap-4">
-        <h1 className="font-medium text-grey-900 text-2xl">Overview</h1>
-        <div className="flex gap-2 items-center">
+    <motion.div
+      className="w-full flex flex-col gap-4 p-4"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+    >
+      <div className="flex justify-between items-start sm:items-center gap-4">
+        <motion.h1
+          className="font-medium text-grey-900 text-2xl"
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          Overview
+        </motion.h1>
+        <motion.div
+          className="flex gap-2 items-center"
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5 }}
+        >
           <select className="py-2 px-3 text-sm font-medium bg-white rounded-md border-grey-200 text-gray-700">
             {["This Month", "This Week", "This Day"].map((filter, index) => (
               <option key={index} value={filter}>
@@ -25,21 +43,34 @@ export const OverviewSection = () => {
               </option>
             ))}
           </select>
-        </div>
+        </motion.div>
       </div>
-      <div className="flex flex-col lg:flex-row items-stretch gap-6">
-        <div className="w-full lg:w-[448px] h-auto bg-links py-6 px-4 text-white flex flex-col gap-4 rounded-md">
+      <motion.div
+        className="flex flex-col lg:flex-row items-stretch gap-6"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.2, duration: 0.5 }}
+      >
+        <motion.div
+          className="w-full lg:w-[448px] h-auto bg-links py-6 px-4 text-white flex flex-col gap-4 rounded-md"
+          initial={{ scale: 0.9, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        >
           <h2 className="text-xs font-light text-white/70">Your Balance</h2>
           <p className="text-2xl font-black text-white/90">₦3,000,000.28</p>
           <button className="w-fit bg-white py-2 px-4 rounded-lg text-links font-medium text-xs mt-4">
             Fund Waitlist
           </button>
-        </div>
+        </motion.div>
         <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {shipments.map((item, index) => (
-            <div
+            <motion.div
               key={index}
               className="bg-white p-6 rounded-md flex flex-col gap-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 + index * 0.1, duration: 0.5 }}
             >
               <div className="flex items-center gap-2">
                 <p
@@ -74,10 +105,10 @@ export const OverviewSection = () => {
                   </span>
                 </p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };

@@ -1,14 +1,19 @@
 import { CaretIcon, FlagIcon, TimerIcon } from "@/assets/icons";
 import Link from "next/link";
 import { shipments } from "@/data/shipments";
+import { motion } from "framer-motion";
 
 export const ShipmentList = () => {
   return (
-    <div className="w-full flex flex-col gap-6">
+    <div className="w-full flex flex-col gap-4">
       {shipments.map((shipment) => (
-        <div
+        <motion.div
           key={shipment.trackingId}
-          className="bg-white p-4 md:p-6 rounded-xl shadow-md flex flex-col gap-6"
+          className="bg-white p-4 md:p-6 rounded-xl shadow-sm flex flex-col gap-6"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          transition={{ duration: 0.3 }}
         >
           <div className="flex flex-col gap-6">
             {/* Header Section */}
@@ -105,7 +110,7 @@ export const ShipmentList = () => {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       ))}
     </div>
   );

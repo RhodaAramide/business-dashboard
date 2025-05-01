@@ -14,7 +14,7 @@ export default function DashboardPage() {
   useEffect(() => {
     const isLoggedIn = localStorage.getItem('isAuthenticated');
     if (!isLoggedIn) {
-      router.replace('/login');
+      router.replace('/auth/login');
     }
   }, [router]);
 

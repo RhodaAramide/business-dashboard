@@ -64,7 +64,7 @@ Check out the live version of the Shipment Tracker Dashboard here: [Shipment Tra
 - Login at `/login` page using email and password.
 
 ## 🧩 Folder Structure
-```markdown
+
 ├── public/
 │   ├── images/            # Static assets like images and icons
 │
@@ -82,7 +82,7 @@ Check out the live version of the Shipment Tracker Dashboard here: [Shipment Tra
 
 ## 👨‍💻 Author
 
-- GitHub: [RhodaAramide](https://github.com/RhodaAramide)
+- GitHub: [RhodaAramide](https://github.com/RhodaAramide/)
 
 
 ## 📝 License

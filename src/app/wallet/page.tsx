@@ -1,4 +1,4 @@
-export const WalletsPage = () => {
+const WalletsPage = () => {
     return (
         <div className="flex flex-col gap-2 py-8 items-center w-full h-full">
             <h1>Wallets</h1>
@@ -6,3 +6,5 @@ export const WalletsPage = () => {
         </div>
     );
 };
+
+export default WalletsPage

@@ -1,4 +1,4 @@
-export const ReferralPage = () => {
+const ReferralPage = () => {
     return (
         <div className="flex flex-col gap-2 py-8 items-center w-full h-full">
             <h1>Referral</h1>
@@ -6,3 +6,5 @@ export const ReferralPage = () => {
         </div>
     );
 };
+
+export default ReferralPage;

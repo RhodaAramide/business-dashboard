@@ -1,4 +1,4 @@
-export const HelpPage = () => {
+const HelpPage = () => {
     return (
         <div className="flex flex-col gap-2 py-8 items-center w-full h-full">
             <h1>Help</h1>
@@ -6,3 +6,5 @@ export const HelpPage = () => {
         </div>
     );
 };
+
+export default HelpPage;

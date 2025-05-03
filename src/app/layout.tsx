@@ -1,7 +1,7 @@
 import "./globals.css";
 import { ReactNode } from "react";
 import { ToastProvider } from "./providers/ToastProvider";
-import { LayoutWrapper } from "@/components/LayoutWrapper";
+import { LayoutWrapper } from "@/layout/LayoutWrapper";
 
 export const metadata = {
   title: "Business Dashboard",

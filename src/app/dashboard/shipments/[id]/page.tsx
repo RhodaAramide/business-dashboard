@@ -1,12 +1,10 @@
-"use client";
-
 import { shipments } from "@/data/shipments";
 import { notFound } from "next/navigation";
 import { use } from "react";
 import Link from "next/link";
 
 export default function ShipmentDetailPage({ params }: { params: Promise<{ id: string }> }) {
-    const { id } = use(params); // Unwrap the params Promise
+    const { id } = use(params); 
 
     const shipment = shipments.find((s) => s.trackingId === id);
 

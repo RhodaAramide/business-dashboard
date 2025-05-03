@@ -1,12 +1,13 @@
-// components/LayoutWrapper.tsx
+
 "use client";
 
 import { usePathname } from "next/navigation";
-import { Sidebar } from "@/components/Sidebar";
-import { Topbar } from "@/components/Topbar";
+import { Sidebar } from "@/layout/Sidebar";
+import { Topbar } from "@/layout/Topbar";
 import { ReactNode } from "react";
 
 export const LayoutWrapper = ({ children }: { children: ReactNode }) => {
+  
   const pathname = usePathname();
   const isAuthPage = pathname.startsWith("/auth");
 

@@ -1,4 +1,4 @@
-const NotificationsPage = () => {
+export const NotificationsPage = () => {
     return (
         <div className="flex flex-col gap-2 py-8 items-center w-full h-full">
             <h1>Notifications</h1>
@@ -6,5 +6,3 @@ const NotificationsPage = () => {
         </div>
     );
 };
-
-export default NotificationsPage;

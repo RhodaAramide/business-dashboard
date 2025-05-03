@@ -1,6 +1,3 @@
-// Sidebar.tsx
-
-"use client";
 
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
@@ -22,7 +19,7 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import Image from "next/image";
 
-interface LinkItem {
+type LinkItem = {
   href: string;
   icon: React.ReactNode;
   label: string;
@@ -39,7 +36,7 @@ const links: LinkItem[] = [
   { href: "/help", icon: <HelpIcon />, label: "Help Center" },
 ];
 
-export const Sidebar: React.FC = () => {
+export const Sidebar = () => {
   const [open, setOpen] = useState(false);
     const currentPath = usePathname();
 
@@ -64,7 +61,7 @@ export const Sidebar: React.FC = () => {
   return (
     <div className="font-sans">
       {/* Mobile Menu Icon */}
-      <div className="md:hidden p-4">
+      <div className="md:hidden p-4 h-fit">
         <Menu size={28} onClick={() => setOpen(!open)} className="cursor-pointer" />
       </div>
 
